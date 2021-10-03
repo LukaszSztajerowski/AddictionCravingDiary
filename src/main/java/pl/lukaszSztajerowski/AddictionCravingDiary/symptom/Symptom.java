@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.Symptom;
+package pl.lukaszSztajerowski.AddictionCravingDiary.symptom;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Range;

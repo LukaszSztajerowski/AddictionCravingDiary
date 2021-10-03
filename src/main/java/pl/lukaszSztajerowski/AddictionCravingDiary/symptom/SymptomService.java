@@ -1,15 +1,15 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.Symptom;
+package pl.lukaszSztajerowski.AddictionCravingDiary.symptom;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class SymptomService {
 
     private final SymptomRepository symptomRepository;
-
-
-    public SymptomService(SymptomRepository symptomRepository) {
-        this.symptomRepository = symptomRepository;
-    }
 
     public void createSymptom(Symptom symptomToAdd) {
         symptomRepository.save(symptomToAdd);
