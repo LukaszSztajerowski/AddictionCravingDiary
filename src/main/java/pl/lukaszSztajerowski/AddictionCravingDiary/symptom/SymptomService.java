@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -15,14 +16,9 @@ public class SymptomService {
         symptomRepository.save(symptomToAdd);
     }
 
-    public List<Symptom> getSymptoms() {
-        List<Symptom> symptomList = symptomRepository.findAll();
-        return symptomList;
-    }
-
-    public Symptom getSymptomById(Long id) {
-        Symptom symptomById = symptomRepository.getById(id);
-        return symptomById;
+    public Optional<Symptom> getSymptomById(Long id) {
+        Optional<Symptom> byId = symptomRepository.findById(id);
+        return byId;
     }
 
     public void updateSymptom(Symptom symptomToUpdate) {
@@ -30,9 +26,15 @@ public class SymptomService {
     }
 
     public void deleteSymptom(Long id) {
-        Symptom symptomById = symptomRepository.getById(id);
-        if (symptomById != null) {
+        Optional<Symptom> byId = symptomRepository.findById(id);
+        if (byId.isPresent()) {
             symptomRepository.deleteById(id);
         }
     }
+
+    public List<Symptom> getSymptoms() {
+        List<Symptom> symptomList = symptomRepository.findAll();
+        return symptomList;
+    }
+
 }

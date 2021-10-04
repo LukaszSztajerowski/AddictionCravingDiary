@@ -40,10 +40,5 @@ public class UserController {
         return "login";
     }
 
-//    @PostMapping("/login")
-//        public String login(HttpServletRequest request, HttpServletResponse response){
-//
-//        return "user";
-//    }
-// zroibc to przez spring security;
+
 }
