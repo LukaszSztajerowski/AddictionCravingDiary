@@ -13,6 +13,7 @@ public class AddictionCravingDiary {
     private Long id;
 
     @OneToMany
+    @JoinColumn(name = "id")
     private List<Day> dayList;
 
 

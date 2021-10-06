@@ -9,9 +9,7 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
 
 @Data
 @Entity
@@ -30,7 +28,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long userId;
+    private Long id;
 
     @Size(min=2,max=30)
     private String login;
@@ -41,10 +39,12 @@ public class User {
 
     private String password;
 
-    @ManyToMany
+    @OneToMany
+    @JoinColumn(name = "id")
     private List<Symptom> symptoms = new ArrayList<>();
 
     @OneToOne
+    @JoinColumn(name = "id")
     private AddictionCravingDiary addictionCravingDiary;
 
     @ElementCollection

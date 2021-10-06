@@ -14,15 +14,17 @@ import java.util.List;
 @Table(name = "days")
 @NoArgsConstructor
 public class Day {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
     private LocalDate date;
-    @ManyToMany
+
+    @OneToMany
     private List<Symptom> symptomList;
 
     public Day(LocalDate date, List<Symptom> symptomList) {
         this.date = LocalDate.now();
-        this.symptomList = new ArrayList<>();
+        this.symptomList = symptomList;
     }
 }
