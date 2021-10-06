@@ -1,6 +1,7 @@
 package pl.lukaszSztajerowski.AddictionCravingDiary.user;
 
 import lombok.RequiredArgsConstructor;
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public class UserService {
     private final UserRepository userRepository;
 
     public void createUser(User user){
+        String hashpass = BCrypt.hashpw(user.getPassword(), BCrypt.gensalt());
+        user.setPassword(hashpass);
         userRepository.save(user);
     }
 
