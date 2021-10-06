@@ -16,6 +16,9 @@
         <li>
             <a href="/register"> rejestracja </a>
         </li>
+        <li>
+            <a href="/user/dashboard"> pulpit </a>
+        </li>
     </ul>
 </nav>
 </body>

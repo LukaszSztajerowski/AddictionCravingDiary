@@ -34,11 +34,9 @@ public class UserController {
         return "login";
     }
 
-
-    @GetMapping("/login")
-        public String loginPage(){
-        return "login";
+    @GetMapping("/user/dashboard")
+        public String dashboard(){
+        return "dashboard";
     }
-
 
 }
