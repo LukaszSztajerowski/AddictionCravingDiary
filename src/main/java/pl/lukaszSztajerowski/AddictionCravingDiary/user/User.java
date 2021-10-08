@@ -17,8 +17,8 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
 
-    public User(String login, String email, String password) {
-        this.login = login;
+    public User(String name, String email, String password) {
+        this.name = name;
         this.email = email;
         this.password = password;
         this.symptoms = new ArrayList<>();
@@ -31,7 +31,7 @@ public class User {
     private Long id;
 
     @Size(min=2,max=30)
-    private String login;
+    private String name;
 
     @Email
     @Column(unique = true)
@@ -39,12 +39,10 @@ public class User {
 
     private String password;
 
-    @OneToMany
-    @JoinColumn(name = "id")
+    @ManyToMany
     private List<Symptom> symptoms = new ArrayList<>();
 
     @OneToOne
-    @JoinColumn(name = "id")
     private AddictionCravingDiary addictionCravingDiary;
 
     @ElementCollection
