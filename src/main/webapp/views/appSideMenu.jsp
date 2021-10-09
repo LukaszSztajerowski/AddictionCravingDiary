@@ -7,7 +7,7 @@
            Dzienniczek Głodu
         </a>
         <div class="d-flex justify-content-around">
-            <h4 class="text-light mr-3">${User.login}</h4> // sprawdzić
+            <h4 class="text-light mr-3">${User.name}</h4> // sprawdzić
             <div class="circle-div text-center"><i class="fas fa-user icon-user"></i></div>
         </div>
     </nav>

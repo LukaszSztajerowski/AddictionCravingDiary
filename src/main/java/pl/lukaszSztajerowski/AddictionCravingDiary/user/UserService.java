@@ -1,8 +1,6 @@
 package pl.lukaszSztajerowski.AddictionCravingDiary.user;
 
 import lombok.RequiredArgsConstructor;
-import org.mindrot.jbcrypt.BCrypt;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

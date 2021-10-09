@@ -16,6 +16,7 @@
 
     opis objawu: <form:input path="syptomDescription"/><br/>
     <form:errors path="syptomDescription"/><br/>
+    <input type="submit" value="Dodaj Objaw">
 
 </form:form>
 </html>
