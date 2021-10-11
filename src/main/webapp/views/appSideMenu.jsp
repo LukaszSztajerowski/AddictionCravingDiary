@@ -3,11 +3,11 @@
 
 <header class="page-header">
     <nav class="navbar navbar-expand-lg justify-content-between">
-        <a href="/app" class="navbar-brand main-logo main-logo-smaller"> //link do zmiany
+        <a href="/dashboard" class="navbar-brand main-logo main-logo-smaller"> //link do zmiany
            Dzienniczek Głodu
         </a>
         <div class="d-flex justify-content-around">
-            <h4 class="text-light mr-3">${User.name}</h4> // sprawdzić
+            <h4 class="text-light mr-3">${User.userName}</h4> // sprawdzić
             <div class="circle-div text-center"><i class="fas fa-user icon-user"></i></div>
         </div>
     </nav>

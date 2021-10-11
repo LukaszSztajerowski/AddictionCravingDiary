@@ -16,11 +16,8 @@ public class Role {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true)
+    @Column(unique = true, name = "role")
     private String name;
-
-    @ManyToOne
-    private User user;
 
     public Role(String name){
         this.name = name;

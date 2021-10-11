@@ -11,6 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Data
 @Entity
@@ -18,23 +19,12 @@ import java.util.List;
 @NoArgsConstructor
 public class User {
 
-
-    public User(String name, String email, String password) {
-        this.name = name;
-        this.email = email;
-        this.password = password;
-        this.symptoms = new ArrayList<>();
-        this.addictionCravingDiary = new AddictionCravingDiary();// czy stworzyć przez acdRepository.create(new AddictionCravingDiary());
-        //jesli tak to czy stworzyć konstruktor User(ACDRepository acdRepository)?
-        this.roles = new ArrayList<>();
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Size(min=2,max=30)
-    private String name;
+    @Size(min = 2, max = 30)
+    private String username;
 
     @Email
     @Column(unique = true)
@@ -42,14 +32,14 @@ public class User {
 
     private String password;
 
-    @ManyToMany
-    private List<Symptom> symptoms = new ArrayList<>();
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Set<Symptom> symptoms;
 
     @OneToOne
     private AddictionCravingDiary addictionCravingDiary;
 
-    @ManyToMany
-    @JoinColumn(name="id_user")
-    private List<Role> roles = new ArrayList<>();//to zostawic beze jakiejkolwiek adnotacji a w rolach urzyć many to one
-
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 }
