@@ -33,7 +33,7 @@ public class UserServiceImpl implements UserService {
     public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setSymptoms(new HashSet<Symptom>());
-        user.setRoles(new HashSet<Role>(Arrays.asList(new Role("User"))));
+        user.setRoles(new HashSet<Role>(Arrays.asList(new Role("ROLE_USER"))));
         userRepository.save(user);
     }
 
