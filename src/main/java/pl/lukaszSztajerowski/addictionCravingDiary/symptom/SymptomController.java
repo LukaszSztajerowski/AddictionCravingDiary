@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.symptom;
+package pl.lukaszSztajerowski.addictionCravingDiary.symptom;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -27,6 +27,7 @@ public class SymptomController {
         }
         symptom.setSymptomsPower(0);
         symptomService.createSymptom(symptom);
+        //dodać objaw do Set<Symptom> symptoms
         return "dashboard";
     }
 }

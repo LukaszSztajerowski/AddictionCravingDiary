@@ -1,12 +1,11 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.day;
+package pl.lukaszSztajerowski.addictionCravingDiary.day;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.lukaszSztajerowski.AddictionCravingDiary.symptom.Symptom;
+import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
 @Data

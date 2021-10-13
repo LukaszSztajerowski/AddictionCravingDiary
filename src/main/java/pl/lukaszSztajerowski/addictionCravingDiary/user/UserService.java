@@ -1,14 +1,8 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.user;
-
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
+package pl.lukaszSztajerowski.addictionCravingDiary.user;
 
 public interface UserService {
 
-    User findByUserName(String name);
+    User findByUsername(String name);
 
     void createUser(User user);
 //    private final UserRepository userRepository;

@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary;
+package pl.lukaszSztajerowski.addictionCravingDiary;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

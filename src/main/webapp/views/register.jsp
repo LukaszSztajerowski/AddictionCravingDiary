@@ -11,8 +11,8 @@
 </head>
 <h1>Rejestracja</h1>
 <form:form method="post" action="/register" modelAttribute="user">
-    login: <form:input path="username"/><br/>
-    <form:errors path="name"/><br/>
+    user name: <form:input path="username"/><br/>
+    <form:errors path="username"/><br/>
 
     email: <form:input path="email"/><br/>
     <form:errors path="email"/><br/>

@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.symptom;
+package pl.lukaszSztajerowski.addictionCravingDiary.symptom;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

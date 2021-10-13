@@ -1,8 +1,7 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.role;
+package pl.lukaszSztajerowski.addictionCravingDiary.role;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.lukaszSztajerowski.AddictionCravingDiary.user.User;
 
 import javax.persistence.*;
 

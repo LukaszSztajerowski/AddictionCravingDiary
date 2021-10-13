@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.security;
+package pl.lukaszSztajerowski.addictionCravingDiary.security;
 
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -20,8 +20,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/", "/register", "/login").permitAll()
                 .antMatchers("/admin/**").hasRole("ADMIN")
                 .antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
-                .anyRequest().permitAll()
-                .and().formLogin().loginPage("/login")
+                .anyRequest().authenticated()
+                .and().formLogin().loginPage("/login").defaultSuccessUrl("/user/dashboard",true)
                 .and().logout().logoutSuccessUrl("/")
                 .permitAll();
     }
@@ -32,7 +32,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Bean
-    public SpringDataUserDetailsService custromUserDetailsService(){
+    public SpringDataUserDetailsService customUserDetailsService(){
         return new SpringDataUserDetailsService();
     }
 }

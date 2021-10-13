@@ -12,7 +12,12 @@
 <body>
 
 <jsp:include page="appSideMenu.jsp"/>
+
+<h1>
+
+</h1>
 <div>
+
     <div>
         <a href="/add/symptom">dodaj objaw</a>
     </div>
@@ -25,4 +30,5 @@
 </div>
 </body>
 </html>
+
 

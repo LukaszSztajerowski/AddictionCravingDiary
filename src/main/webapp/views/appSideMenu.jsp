@@ -3,7 +3,7 @@
 
 <header class="page-header">
     <nav class="navbar navbar-expand-lg justify-content-between">
-        <a href="/dashboard" class="navbar-brand main-logo main-logo-smaller"> //link do zmiany
+        <a href="/user/dashboard" class="navbar-brand main-logo main-logo-smaller"> //link do zmiany
            Dzienniczek Głodu
         </a>
         <div class="d-flex justify-content-around">

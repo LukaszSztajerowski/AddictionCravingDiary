@@ -1,7 +1,7 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.addictionCravingDiary;
+package pl.lukaszSztajerowski.addictionCravingDiary.addictionCravingDiary;
 
 import lombok.Data;
-import pl.lukaszSztajerowski.AddictionCravingDiary.day.Day;
+import pl.lukaszSztajerowski.addictionCravingDiary.day.Day;
 
 import javax.persistence.*;
 import java.util.List;

@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.user;
+package pl.lukaszSztajerowski.addictionCravingDiary.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -12,7 +12,7 @@ import javax.validation.Valid;
 @Controller
 @RequiredArgsConstructor
 public class UserController {
-    private final UserService userService;
+    private final UserServiceImpl userServiceImpl;
 
     @GetMapping("")
         public String homePage(){
@@ -26,11 +26,17 @@ public class UserController {
     }
 
     @PostMapping("/register")
-        public String register(@Valid User user, BindingResult result){
+        public String register(@Valid User user, BindingResult result, Model model){
         if(result.hasErrors()){
             return "register";
         }
-        userService.createUser(user);
+        userServiceImpl.createUser(user);
+//        model.addAttribute("user", user);
+        return "login";
+    }
+
+    @GetMapping("/login")
+    public String login(){
         return "login";
     }
 

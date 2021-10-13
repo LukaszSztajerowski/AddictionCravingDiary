@@ -1,7 +1,6 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.symptom;
+package pl.lukaszSztajerowski.addictionCravingDiary.symptom;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import pl.lukaszSztajerowski.AddictionCravingDiary.user.User;
 
 public interface SymptomRepository extends JpaRepository<Symptom,Long> {
 

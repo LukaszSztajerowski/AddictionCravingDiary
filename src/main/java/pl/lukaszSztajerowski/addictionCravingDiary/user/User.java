@@ -1,16 +1,14 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.user;
+package pl.lukaszSztajerowski.addictionCravingDiary.user;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import pl.lukaszSztajerowski.AddictionCravingDiary.role.Role;
-import pl.lukaszSztajerowski.AddictionCravingDiary.addictionCravingDiary.AddictionCravingDiary;
-import pl.lukaszSztajerowski.AddictionCravingDiary.symptom.Symptom;
+import pl.lukaszSztajerowski.addictionCravingDiary.role.Role;
+import pl.lukaszSztajerowski.addictionCravingDiary.addictionCravingDiary.AddictionCravingDiary;
+import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Set;
 
 @Data

@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary;
+package pl.lukaszSztajerowski.addictionCravingDiary;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

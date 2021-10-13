@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.role;
+package pl.lukaszSztajerowski.addictionCravingDiary.role;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

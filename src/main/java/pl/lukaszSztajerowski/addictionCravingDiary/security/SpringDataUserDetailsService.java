@@ -1,4 +1,4 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.security;
+package pl.lukaszSztajerowski.addictionCravingDiary.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -6,9 +6,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import pl.lukaszSztajerowski.AddictionCravingDiary.role.Role;
-import pl.lukaszSztajerowski.AddictionCravingDiary.user.User;
-import pl.lukaszSztajerowski.AddictionCravingDiary.user.UserService;
+import pl.lukaszSztajerowski.addictionCravingDiary.role.Role;
+import pl.lukaszSztajerowski.addictionCravingDiary.user.User;
+import pl.lukaszSztajerowski.addictionCravingDiary.user.UserService;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -24,7 +24,7 @@ public class SpringDataUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userService.findByUserName(username);
+        User user = userService.findByUsername(username);
         if(user == null){
             throw new UsernameNotFoundException(username);
         }

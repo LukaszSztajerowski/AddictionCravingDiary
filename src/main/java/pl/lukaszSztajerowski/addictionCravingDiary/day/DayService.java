@@ -1,9 +1,8 @@
-package pl.lukaszSztajerowski.AddictionCravingDiary.day;
+package pl.lukaszSztajerowski.addictionCravingDiary.day;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.lang.management.OperatingSystemMXBean;
 import java.util.List;
 import java.util.Optional;
 
