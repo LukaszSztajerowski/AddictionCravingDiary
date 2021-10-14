@@ -27,7 +27,7 @@ public class UserController {
     }
 
     @PostMapping("/register")
-        public String register(@Valid User user, BindingResult result, Model model){
+        public String register(@Valid User user, BindingResult result){
         if(result.hasErrors()){
             return "register";
         }

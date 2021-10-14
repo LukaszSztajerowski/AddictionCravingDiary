@@ -24,6 +24,8 @@
 <tr>
     <td>${symptom.symptomName}</td>
     <td>${symptom.symptomDescription}</td>
+    <td><a href="/user/delete/symptom/${symptom.id}">usuń</a> </td>
+    <td><a href="/user/edit/symptom/${symptom.id}">edytuj</a> </td>
 </tr>
 </c:forEach>
 </table>

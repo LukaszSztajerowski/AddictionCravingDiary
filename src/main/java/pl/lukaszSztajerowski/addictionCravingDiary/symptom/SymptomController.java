@@ -1,10 +1,12 @@
 package pl.lukaszSztajerowski.addictionCravingDiary.symptom;
 
 import lombok.RequiredArgsConstructor;
+import lombok.extern.java.Log;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.lukaszSztajerowski.addictionCravingDiary.user.User;
 import pl.lukaszSztajerowski.addictionCravingDiary.user.UserServiceImpl;
@@ -14,7 +16,7 @@ import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+@Log
 @Controller
 @RequiredArgsConstructor
 public class SymptomController {
@@ -28,9 +30,9 @@ public class SymptomController {
     }
 
     @PostMapping("/user/add/symptom")
-    public String addSymptom(@Valid Symptom symptom, BindingResult result, Principal principal){
+    public String addSymptom(@Valid Symptom symptom, BindingResult result, Principal principal,Model model){
         if(result.hasErrors()){
-            return "add/symptom";
+            return "/user/add/symptom";
         }
         symptom.setSymptomsPower(0);
         symptomService.createSymptom(symptom);
@@ -38,8 +40,7 @@ public class SymptomController {
         User user = userServiceImpl.findByUsername(name);
         List<Symptom> symptoms = user.getSymptoms();
         symptoms.add(symptom);
-        user.setSymptoms(symptoms);
-
+        userServiceImpl.updateUser(user);
         return "dashboard";
     }
 
@@ -47,7 +48,29 @@ public class SymptomController {
     public String showSymptoms(Model model, Principal principal){
         String name = principal.getName();
         User user = userServiceImpl.findByUsername(name);
-        model.addAttribute("symptoms", user.getSymptoms());
+        List<Symptom> symptoms = user.getSymptoms();
+        model.addAttribute("symptoms",symptoms);
         return "symptomsList";
+    }
+
+    @GetMapping("/user/delete/symptom/{id}")
+    public String deleteSymptom(@PathVariable Long id){
+        symptomService.deleteSymptom(id);
+        return "redirect:/user/symptomsList";
+    }
+
+    @GetMapping("/user/edit/symptom/{id}")
+    public String editSymptomForm(Model model){
+        model.addAttribute("symptom", new Symptom());
+        return "editSymptom";//edycja do poprawy
+    }
+
+    @PostMapping("/user/edit/symptom/{id}")
+    public String editSymptom(@PathVariable Long id,@Valid Symptom symptom, BindingResult result){
+        symptom.setId(id);
+        symptomService.updateSymptom(symptom);
+
+        return "redirect:/user/symptomsList";
+
     }
 }

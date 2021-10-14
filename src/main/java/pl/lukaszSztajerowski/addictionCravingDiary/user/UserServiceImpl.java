@@ -53,4 +53,5 @@ public class UserServiceImpl implements UserService {
         List<User> userList = userRepository.findAll();
         return  userList;
     }
+
 }
