@@ -10,12 +10,12 @@
     <title>Dzienniczek głodu w uzależnieniu - dodawanie symptomu</title>
 </head>
 <h1>Dodawanie objawu głodu</h1>
-<form:form method="post" action="/add/symptom" modelAttribute="symptom">
+<form:form method="post" action="/user/add/symptom" modelAttribute="symptom">
     nazwa objawu: <form:input path="symptomName"/><br/>
     <form:errors path="symptomName"/><br/>
 
-    opis objawu: <form:input path="syptomDescription"/><br/>
-    <form:errors path="syptomDescription"/><br/>
+    opis objawu: <form:input path="symptomDescription"/><br/>
+    <form:errors path="symptomDescription"/><br/>
     <input type="submit" value="Dodaj Objaw">
 
 </form:form>

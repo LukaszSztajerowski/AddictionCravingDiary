@@ -9,6 +9,8 @@ import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -22,7 +24,7 @@ public class User {
     private Long id;
 
     @Size(min = 2, max = 30)
-    private String username;
+    private String name;
 
     @Email
     @Column(unique = true)
@@ -31,7 +33,7 @@ public class User {
     private String password;
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Set<Symptom> symptoms;
+    private List<Symptom> symptoms;
 
     @OneToOne
     private AddictionCravingDiary addictionCravingDiary;

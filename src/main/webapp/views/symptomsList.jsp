@@ -1,27 +1,30 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="pl">
 
 <head>
     <meta charset="utf-8">
-    <title>Dzienniczek Głodu - strona główna </title>
+    <title>Dzienniczek Głodu - objawy głodu</title>
 </head>
 
 <body>
 <div>
-<jsp:include page="header.jsp"/>
+    <jsp:include page="header.jsp"/>
 </div>
 <div>
     <jsp:include page="appSideMenu.jsp"/>
 </div>
-<div>
-    Dzienniczek głodu - tabela
+<table>
+    <thead><td>nazwa</td><td>opis</td></thead>
 
-<%--    tabla ACD --%>
-</div>
+<c:forEach items="${symptoms}" var="symptom">
+<tr>
+    <td>${symptom.symptomName}</td>
+    <td>${symptom.symptomDescription}</td>
+</tr>
+</c:forEach>
+</table>
 </body>
-</html>
-
-

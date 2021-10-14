@@ -7,10 +7,7 @@ import pl.lukaszSztajerowski.addictionCravingDiary.role.Role;
 import pl.lukaszSztajerowski.addictionCravingDiary.role.RoleRepository;
 import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -26,13 +23,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User findByUsername(String name) {
-        return userRepository.findByUsername(name);
+        return userRepository.findByName(name);
     }
 
     @Override
     public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setSymptoms(new HashSet<Symptom>());
+        user.setSymptoms(new ArrayList<Symptom>());
         user.setRoles(new HashSet<Role>(Arrays.asList(new Role("ROLE_USER"))));
         userRepository.save(user);
     }

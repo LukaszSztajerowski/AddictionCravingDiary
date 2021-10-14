@@ -17,7 +17,7 @@ public class Symptom {
     @Size(min = 2, max = 50)
     private String symptomName;
 
-    private String syptomDescription;
+    private String symptomDescription;
 
     @Range(min = 0, max = 3)
     private Integer symptomsPower;

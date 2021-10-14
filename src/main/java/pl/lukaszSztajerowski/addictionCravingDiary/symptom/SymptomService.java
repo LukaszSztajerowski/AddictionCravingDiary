@@ -2,15 +2,22 @@ package pl.lukaszSztajerowski.addictionCravingDiary.symptom;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.lukaszSztajerowski.addictionCravingDiary.user.User;
+import pl.lukaszSztajerowski.addictionCravingDiary.user.UserServiceImpl;
 
+import java.security.Principal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Service
 @RequiredArgsConstructor
 public class SymptomService {
 
     private final SymptomRepository symptomRepository;
+    private final UserServiceImpl userServiceImpl;
+
 
     public void createSymptom(Symptom symptomToAdd) {
         symptomRepository.save(symptomToAdd);

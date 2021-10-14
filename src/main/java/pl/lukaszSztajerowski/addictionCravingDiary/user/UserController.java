@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 @RequiredArgsConstructor
@@ -31,17 +32,17 @@ public class UserController {
             return "register";
         }
         userServiceImpl.createUser(user);
-//        model.addAttribute("user", user);
-        return "login";
-    }
-
-    @GetMapping("/login")
-    public String login(){
-        return "login";
+//
+        return "redirect:/login";
     }
 
     @GetMapping("/user/dashboard")
-        public String dashboard(){
+        public String dashboard(Model model, Principal principal){
+        String name = principal.getName();
+        User user = userServiceImpl.findByUsername(name);
+        model.addAttribute("user", user);
+        model.addAttribute("userSymptomList", user.getSymptoms());
+
         return "dashboard";
     }
 
