@@ -18,12 +18,11 @@
 <div>
     <jsp:include page="appSideMenu.jsp"/>
 </div>
-<form:form method="post" action="/user/addNewACDForm" modelAttribute="userSymptomList">
-    <c:forEach items="${userSymptomList}" var="symptom">
+<form:form method="post" action="/user/addNewACDForm" modelAttribute="symptomPowerMap">
+    <c:forEach items="${symptomPowerMap.key}" var="symptom">
 
-        ${symptom.symptomName}
-        <form:select path="symptomsPower">
-            <form:options itemValue="-" itemLabel="-- Wybierz siłę objawu --"/>
+        ${symptom}
+        <form:select path="${symptomPowerMap.value}">
             <form:options itemValue="0"/>
             <form:options itemValue="1"/>
             <form:options itemValue="2"/>
@@ -32,5 +31,6 @@
         <br/>
 
     </c:forEach>
+<form:button type="submit" value="dodaj kolejny dzień"/>
 </form:form>
 </body>

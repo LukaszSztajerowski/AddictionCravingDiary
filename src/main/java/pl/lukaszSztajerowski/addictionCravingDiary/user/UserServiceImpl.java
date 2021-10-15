@@ -26,14 +26,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByName(name);
     }
 
+
     @Override
     public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
-        user.setSymptoms(new ArrayList<Symptom>());
-        if(?????????????????????????) {
-            user.setRoles(new HashSet<Role>(Arrays.asList(new Role("ROLE_USER"))));
+        if(roleRepository.findByName("ROLE_USER") == null) {
+            user.getRoles().add(new Role("ROLE_USER"));
         }else{
-            user.setRoles(new HashSet<Role>(Arrays.asList(roleRepository.findByName("ROLE_USER"))));
+            user.getRoles().add(roleRepository.findByName("ROLE_USER"));
         }
         userRepository.save(user);
     }
