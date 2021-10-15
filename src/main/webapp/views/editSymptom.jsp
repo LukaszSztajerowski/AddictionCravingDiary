@@ -18,10 +18,10 @@
 </div>
 
 <form:form method="post" action="/user/edit/symptom" modelAttribute="symptom">
-    user name: <form:input path="symptomName"/><br/>
+    nazwa : <form:input path="symptomName"/><br/>
     <form:errors path="symptomName"/><br/>
 
-    email: <form:input path="symptomDescription"/><br/>
+    opis <form:input path="symptomDescription"/><br/>
     <form:errors path="symptomDescription"/><br/>
 
     <input type="submit" value="edytuj">

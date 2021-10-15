@@ -32,7 +32,6 @@ public class UserController {
             return "register";
         }
         userServiceImpl.createUser(user);
-//
         return "redirect:/login";
     }
 
@@ -42,7 +41,6 @@ public class UserController {
         User user = userServiceImpl.findByUsername(name);
         model.addAttribute("user", user);
         model.addAttribute("userSymptomList", user.getSymptoms());
-
         return "dashboard";
     }
 

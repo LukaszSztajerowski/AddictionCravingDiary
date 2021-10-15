@@ -13,9 +13,8 @@ import pl.lukaszSztajerowski.addictionCravingDiary.user.UserServiceImpl;
 
 import javax.validation.Valid;
 import java.security.Principal;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
+
 @Log
 @Controller
 @RequiredArgsConstructor
@@ -30,8 +29,8 @@ public class SymptomController {
     }
 
     @PostMapping("/user/add/symptom")
-    public String addSymptom(@Valid Symptom symptom, BindingResult result, Principal principal,Model model){
-        if(result.hasErrors()){
+    public String addSymptom(@Valid Symptom symptom, BindingResult result, Principal principal, Model model) {
+        if (result.hasErrors()) {
             return "/user/add/symptom";
         }
         symptom.setSymptomsPower(0);
@@ -45,32 +44,36 @@ public class SymptomController {
     }
 
     @GetMapping("/user/symptomsList")
-    public String showSymptoms(Model model, Principal principal){
+    public String showSymptoms(Model model, Principal principal) {
         String name = principal.getName();
         User user = userServiceImpl.findByUsername(name);
         List<Symptom> symptoms = user.getSymptoms();
-        model.addAttribute("symptoms",symptoms);
+        model.addAttribute("user", user);
+        model.addAttribute("symptoms", symptoms);
         return "symptomsList";
     }
 
     @GetMapping("/user/delete/symptom/{id}")
-    public String deleteSymptom(@PathVariable Long id){
+    public String deleteSymptom(@PathVariable Long id) {
         symptomService.deleteSymptom(id);
-        return "redirect:/user/symptomsList";
+        return "symptomsList";
     }
 
     @GetMapping("/user/edit/symptom/{id}")
-    public String editSymptomForm(Model model){
+    public String editSymptomForm(Model model) {
         model.addAttribute("symptom", new Symptom());
         return "editSymptom";//edycja do poprawy
     }
 
     @PostMapping("/user/edit/symptom/{id}")
-    public String editSymptom(@PathVariable Long id,@Valid Symptom symptom, BindingResult result){
+    public String editSymptom(@PathVariable Long id, @Valid Symptom symptom, BindingResult result) {
+        if (result.hasErrors()) {
+            return "symptomsList";
+        }
         symptom.setId(id);
         symptomService.updateSymptom(symptom);
 
-        return "redirect:/user/symptomsList";
+        return "symptomsList";
 
     }
 }

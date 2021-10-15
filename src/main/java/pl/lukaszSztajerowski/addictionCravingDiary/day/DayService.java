@@ -2,7 +2,10 @@ package pl.lukaszSztajerowski.addictionCravingDiary.day;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.lukaszSztajerowski.addictionCravingDiary.addictionCravingDiary.ACDRepository;
+import pl.lukaszSztajerowski.addictionCravingDiary.user.UserRepository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,9 +13,13 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class DayService {
 
+    private final UserRepository userRepository;
     private final DayRepository dayRepository;
+    private final ACDRepository acdRepository;
 
     public void createDay(Day day){
+        day.setDate(LocalDate.now());
+
         dayRepository.save(day);
     }
 
