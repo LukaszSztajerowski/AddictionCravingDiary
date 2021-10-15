@@ -19,8 +19,4 @@ public class Symptom {
 
     private String symptomDescription;
 
-    @Range(min = 0, max = 3)
-    private Integer symptomsPower;
-
-
 }

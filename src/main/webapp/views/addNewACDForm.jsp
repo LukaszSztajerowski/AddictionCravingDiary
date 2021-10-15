@@ -18,13 +18,16 @@
 <div>
     <jsp:include page="appSideMenu.jsp"/>
 </div>
-<form:form method="post" action="/user/addNewDay" modelAttribute="symptoms">
-    <c:forEach items="${symptoms}" var="symptom">
+<form:form method="post" action="/user/addNewACDForm" modelAttribute="userSymptomList">
+    <c:forEach items="${userSymptomList}" var="symptom">
 
         ${symptom.symptomName}
         <form:select path="symptomsPower">
             <form:options itemValue="-" itemLabel="-- Wybierz siłę objawu --"/>
-            <form:options itemValue="${symptomPower}"/>
+            <form:options itemValue="0"/>
+            <form:options itemValue="1"/>
+            <form:options itemValue="2"/>
+            <form:options itemValue="3"/>
         </form:select>
         <br/>
 

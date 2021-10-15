@@ -7,7 +7,7 @@
             <li><a href="/user/dashboard">Pulpit</a></li>
             <li><a href="/user/add/symptom">Dodaj Objaw</a></li>
             <li><a href="/user/symptomsList">Lisa Objawów</a></li>
-            <li><a href="/user/addNewDay">Wypełnij dzienniczek</a></li>
+            <li><a href="/user/addNewACD">Wypełnij dzienniczek</a></li>
         </ul>
     </div>
 </section>

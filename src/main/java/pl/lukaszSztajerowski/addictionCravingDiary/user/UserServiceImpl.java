@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
     public void createUser(User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setSymptoms(new ArrayList<Symptom>());
-        if(roleRepository.findByName("ROLE_USER").equals(null)) {
+        if(?????????????????????????) {
             user.setRoles(new HashSet<Role>(Arrays.asList(new Role("ROLE_USER"))));
         }else{
             user.setRoles(new HashSet<Role>(Arrays.asList(roleRepository.findByName("ROLE_USER"))));

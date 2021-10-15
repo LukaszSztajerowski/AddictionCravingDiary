@@ -33,7 +33,6 @@ public class SymptomController {
         if (result.hasErrors()) {
             return "/user/add/symptom";
         }
-        symptom.setSymptomsPower(0);
         symptomService.createSymptom(symptom);
         String name = principal.getName();
         User user = userServiceImpl.findByUsername(name);
