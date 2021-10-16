@@ -6,9 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import pl.lukaszSztajerowski.addictionCravingDiary.addictionCravingDiary.AddictionCravingDiary;
+import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -37,10 +40,15 @@ public class UserController {
 
     @GetMapping("/user/dashboard")
         public String dashboard(Model model, Principal principal){
-        String name = principal.getName();
-        User user = userServiceImpl.findByUsername(name);
+        User user = userServiceImpl.findByUsername(principal.getName());
+        List<Symptom> symptoms = user.getSymptoms();
+        List<AddictionCravingDiary> acd = user.getAddictionCravingDiary();
+
         model.addAttribute("user", user);
-        model.addAttribute("userSymptomList", user.getSymptoms());
+        model.addAttribute("symptoms", symptoms);
+
+        model.addAttribute("acd", user.getAddictionCravingDiary());
+
         return "dashboard";
     }
 

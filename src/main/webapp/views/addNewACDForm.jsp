@@ -18,19 +18,19 @@
 <div>
     <jsp:include page="appSideMenu.jsp"/>
 </div>
-<form:form method="post" action="/user/addNewACDForm" modelAttribute="symptomPowerMap">
-    <c:forEach items="${symptomPowerMap.key}" var="symptom">
+<%--<form:form method="post" action="/user/addNewACDForm" modelAttribute="symptomPowerMap">--%>
+<%--    <c:forEach items="${symptomPowerMap.key}" var="symptom">--%>
 
-        ${symptom}
-        <form:select path="${symptomPowerMap.value}">
-            <form:options itemValue="0"/>
-            <form:options itemValue="1"/>
-            <form:options itemValue="2"/>
-            <form:options itemValue="3"/>
-        </form:select>
-        <br/>
+<%--        ${symptom}--%>
+<%--        <form:select path="${symptomPowerMap.value}">--%>
+<%--            <form:options itemValue="0"/>--%>
+<%--            <form:options itemValue="1"/>--%>
+<%--            <form:options itemValue="2"/>--%>
+<%--            <form:options itemValue="3"/>--%>
+<%--        </form:select>--%>
+<%--        <br/>--%>
 
-    </c:forEach>
-<form:button type="submit" value="dodaj kolejny dzień"/>
-</form:form>
+<%--    </c:forEach>--%>
+<%--<form:button type="submit" value="dodaj kolejny dzień"/>--%>
+<%--</form:form>--%>
 </body>

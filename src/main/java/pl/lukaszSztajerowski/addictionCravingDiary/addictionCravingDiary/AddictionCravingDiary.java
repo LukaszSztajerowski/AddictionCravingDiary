@@ -1,6 +1,7 @@
 package pl.lukaszSztajerowski.addictionCravingDiary.addictionCravingDiary;
 
 import lombok.Data;
+import lombok.ToString;
 import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
 import javax.persistence.*;
@@ -10,6 +11,7 @@ import java.util.Map;
 
 @Data
 @Entity
+@ToString
 public class AddictionCravingDiary {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

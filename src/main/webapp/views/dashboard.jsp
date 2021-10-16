@@ -11,15 +11,31 @@
 
 <body>
 <div>
-<jsp:include page="header.jsp"/>
+    <jsp:include page="header.jsp"/>
 </div>
 <div>
     <jsp:include page="appSideMenu.jsp"/>
 </div>
 <div>
-    Dzienniczek głodu - tabela
+    <table>
+        <thead>
+            <th>nazwa objawu</th>
+            <c:forEach items="${acd}" var="acd">
+                <th>${acd.date}</th>
+            </c:forEach>
+        </thead>
+        <tbody>
+        <c:forEach items="${acd}" begin="0" end="0" var="acd">
+            <c:forEach items="${acd.symptomPowerMap}" var="map">
+                <tr>${map.key.symptomName}</tr>
+            </c:forEach>
 
-<%--    tabla ACD --%>
+        </c:forEach>
+        </tbody>
+    </table>
+
+
+
 </div>
 </body>
 </html>
