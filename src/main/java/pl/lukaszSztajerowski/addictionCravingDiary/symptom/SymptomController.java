@@ -39,6 +39,7 @@ public class SymptomController {
         List<Symptom> symptoms = user.getSymptoms();
         symptoms.add(symptom);
         userServiceImpl.updateUser(user);
+        model.addAttribute("user", user);
         return "dashboard";
     }
 

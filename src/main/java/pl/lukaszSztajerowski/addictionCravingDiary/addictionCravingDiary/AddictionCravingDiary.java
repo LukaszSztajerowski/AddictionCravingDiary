@@ -17,7 +17,7 @@ public class AddictionCravingDiary {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDate date;
+    private LocalDate date = LocalDate.now();
 
     @ElementCollection
     private Map<Symptom,Integer> symptomPowerMap = new HashMap<>();

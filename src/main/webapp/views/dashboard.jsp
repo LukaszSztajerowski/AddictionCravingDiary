@@ -19,18 +19,17 @@
 <div>
     <table>
         <thead>
+        <tr>
             <th>nazwa objawu</th>
             <c:forEach items="${acd}" var="acd">
                 <th>${acd.date}</th>
             </c:forEach>
+        </tr>
         </thead>
         <tbody>
-        <c:forEach items="${acd}" begin="0" end="0" var="acd">
-            <c:forEach items="${acd.symptomPowerMap}" var="map">
-                <tr>${map.key.symptomName}</tr>
-            </c:forEach>
+        <tr>
 
-        </c:forEach>
+        </tr>
         </tbody>
     </table>
 
