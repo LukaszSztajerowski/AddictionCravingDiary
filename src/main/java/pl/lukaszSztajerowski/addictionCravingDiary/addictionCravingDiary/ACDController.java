@@ -31,11 +31,9 @@ public class ACDController {
         User user = userServiceImpl.findByUsername(principal.getName());
         List<Symptom> userSymptomList = user.getSymptoms();
         List<AddictionCravingDiary> acdList = user.getAddictionCravingDiary();
-        Map<String,Integer> symptomIntegerMap = new HashMap<>();
+        Map<Symptom,Integer> symptomIntegerMap = new HashMap<>();
         for (Symptom symptom: userSymptomList) {
-
-                symptomIntegerMap.put(symptom.getSymptomName(),0);
-
+                symptomIntegerMap.put(symptom,0);
         }
         AddictionCravingDiary acd = new AddictionCravingDiary();
         acd.setSymptomPowerMap(symptomIntegerMap);
