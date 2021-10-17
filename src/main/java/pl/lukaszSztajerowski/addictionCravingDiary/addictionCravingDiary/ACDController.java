@@ -31,12 +31,16 @@ public class ACDController {
         User user = userServiceImpl.findByUsername(principal.getName());
         List<Symptom> userSymptomList = user.getSymptoms();
         List<AddictionCravingDiary> acdList = user.getAddictionCravingDiary();
-        Map<Symptom,Integer> map = new HashMap<>();
+        Map<String,Integer> symptomIntegerMap = new HashMap<>();
         for (Symptom symptom: userSymptomList) {
-            map.put(symptom,0);
+
+                symptomIntegerMap.put(symptom.getSymptomName(),0);
+
         }
         AddictionCravingDiary acd = new AddictionCravingDiary();
-        acd.setSymptomPowerMap(map);
+        acd.setSymptomPowerMap(symptomIntegerMap);
+        log.info(symptomIntegerMap.toString());
+
 //        Map<Symptom, Integer> symptomPowerMap = addictionCravingDiary.getSymptomPowerMap();
 //        for (Symptom symptom: userSymptomList) {
 //            symptomPowerMap.put(symptom,0);
@@ -51,7 +55,7 @@ public class ACDController {
         model.addAttribute("user", user);
         model.addAttribute("userSymptomList", userSymptomList);
         model.addAttribute("acd", acd);
-        model.addAttribute("map",map);
+        model.addAttribute("map",symptomIntegerMap);
         return "addNewACDForm";
     }
 

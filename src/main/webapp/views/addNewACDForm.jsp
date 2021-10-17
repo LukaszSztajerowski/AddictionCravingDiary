@@ -18,21 +18,21 @@
 <div>
     <jsp:include page="appSideMenu.jsp"/>
 </div>
+WYswietlam
+<form:form method="post" action="/user/addNewACDForm" modelAttribute="map">
 
-<form:form method="post" action="/user/addNewACDForm" modelAttribute="acd">
+    <c:forEach items="${map}" var ="map">
 
-    <c:forEach items="${map}" var ="entry">
+<%--        <form:input path="map.key" value="${entry.key}"/><br>--%>
+<%--        <form:hidden path="entry.key.symptomDescription" value="${entry.key.symptomDescription}"/><br>--%>
 
-        <form:input path="entry.key.symptomName" value="${entry.key.symptomName}"/><br>
-        <form:hidden path="entry.key.symptomDescription" value="${entry.key.symptomDescription}"/><br>
-
-        <form:select path="entry.value">
-            <form:options itemValue="0"/>
-            <form:options itemValue="1"/>
-            <form:options itemValue="2"/>
-            <form:options itemValue="3"/>
-        </form:select>
-        <br>
+<%--        <form:select path="entry.value">--%>
+<%--            <form:options itemValue="0"/>--%>
+<%--            <form:options itemValue="1"/>--%>
+<%--            <form:options itemValue="2"/>--%>
+<%--            <form:options itemValue="3"/>--%>
+<%--        </form:select>--%>
+<%--        <br>--%>
     </c:forEach>
 
 <input type="submit" value="dodaj kolejny dzień"/>

@@ -20,6 +20,6 @@ public class AddictionCravingDiary {
     private LocalDate date = LocalDate.now();
 
     @ElementCollection
-    private Map<Symptom,Integer> symptomPowerMap = new HashMap<>();
+    private Map<String,Integer> symptomPowerMap = new HashMap<>(); // zminic Symptom na String
 
 }
