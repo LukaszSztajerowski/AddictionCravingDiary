@@ -30,47 +30,30 @@ public class ACDController {
     public String addNewACDForm(Model model, Principal principal) {
         User user = userServiceImpl.findByUsername(principal.getName());
         List<Symptom> userSymptomList = user.getSymptoms();
-        List<AddictionCravingDiary> acdList = user.getAddictionCravingDiary();
-        Map<String,Integer> symptomIntegerMap = new HashMap<>();
-        for (Symptom symptom: userSymptomList) {
-
-                symptomIntegerMap.put(symptom.getSymptomName(),0);
-
-        }
         AddictionCravingDiary acd = new AddictionCravingDiary();
-        acd.setSymptomPowerMap(symptomIntegerMap);
-        log.info(symptomIntegerMap.toString());
+        acd.setSymptomListOfACD(userSymptomList);
 
-//        Map<Symptom, Integer> symptomPowerMap = addictionCravingDiary.getSymptomPowerMap();
-//        for (Symptom symptom: userSymptomList) {
-//            symptomPowerMap.put(symptom,0);
-//        }
-//        addictionCravingDiary.setSymptomPowerMap(symptomPowerMap);
-//        acd.add(addictionCravingDiary);
-//        acdService.createACD(addictionCravingDiary);
-////
-//        log.info("Tworze nowe ACD ");
-//        Optional<AddictionCravingDiary> addictionCravingDiary1 = acdService.readACD(2L);
-//        log.info(String.valueOf(addictionCravingDiary1));
         model.addAttribute("user", user);
         model.addAttribute("userSymptomList", userSymptomList);
         model.addAttribute("acd", acd);
-        model.addAttribute("map",symptomIntegerMap);
+
         return "addNewACDForm";
     }
 
     @PostMapping("/user/addNewACD")
-    public String addNewACD(@Valid AddictionCravingDiary acd, BindingResult result,Principal principal, Model model){
+    public String addNewACD(@Valid List userSymptomList , BindingResult result,Principal principal, Model model){
         if(result.hasErrors()){
             return "dashboard";
         }
-        acdService.createACD(acd);
-        String name = principal.getName();
-        User user = userServiceImpl.findByUsername(name);
-        List<AddictionCravingDiary> addictionCravingDiary = user.getAddictionCravingDiary();
-        addictionCravingDiary.add(acd);
+        AddictionCravingDiary addictionCravingDiary = new AddictionCravingDiary();
+        addictionCravingDiary.setSymptomListOfACD(userSymptomList);
+
+        User user = userServiceImpl.findByUsername(principal.getName());
+        List<AddictionCravingDiary> addictionCravingDiaryList = user.getAddictionCravingDiary();
+        addictionCravingDiaryList.add(addictionCravingDiary);
+        acdService.createACD(addictionCravingDiary);
         userServiceImpl.updateUser(user);
-        model.addAttribute("user", user);
+
         return "dashboard";
     }
 }

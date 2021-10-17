@@ -6,7 +6,9 @@ import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Data
@@ -18,8 +20,7 @@ public class AddictionCravingDiary {
     private Long id;
 
     private LocalDate date = LocalDate.now();
-
-    @ElementCollection
-    private Map<String,Integer> symptomPowerMap = new HashMap<>(); // zminic Symptom na String
+    @OneToMany
+    private List<Symptom> symptomListOfACD = new ArrayList<>();
 
 }

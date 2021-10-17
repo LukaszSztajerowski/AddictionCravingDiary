@@ -14,8 +14,6 @@
     nazwa objawu: <form:input path="symptomName"/><br/>
     <form:errors path="symptomName"/><br/>
 
-    opis objawu: <form:input path="symptomDescription"/><br/>
-    <form:errors path="symptomDescription"/><br/>
     <input type="submit" value="Dodaj Objaw">
 
 </form:form>
