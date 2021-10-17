@@ -28,7 +28,9 @@
         </thead>
         <tbody>
         <tr>
-
+<c:forEach items="${symptoms}" var="symptom">
+    <tr> <td>${symptom.symptomName}</td></tr>
+</c:forEach>
         </tr>
         </tbody>
     </table>
