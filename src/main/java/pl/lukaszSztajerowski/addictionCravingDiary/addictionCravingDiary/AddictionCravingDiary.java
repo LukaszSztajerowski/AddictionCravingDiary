@@ -4,7 +4,11 @@ import lombok.Data;
 import lombok.ToString;
 import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
-import javax.persistence.*;
+import javax.persistence.ElementCollection;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
@@ -20,6 +24,6 @@ public class AddictionCravingDiary {
     private LocalDate date = LocalDate.now();
 
     @ElementCollection
-    private Map<Symptom,Integer> symptomPowerMap = new HashMap<>();
+    private Map<Symptom, Integer> symptomPowerMap = new HashMap<>();
 
 }

@@ -15,8 +15,6 @@ public class Symptom {
     private long id;
 
     @Size(min = 2, max = 50)
-    private String symptomName;
-
-    private Integer symptomPower;
+    private String name;
 
 }

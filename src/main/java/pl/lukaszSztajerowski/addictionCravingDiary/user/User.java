@@ -33,10 +33,7 @@ public class User {
 
     private String password;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private List<Symptom> symptoms = new ArrayList<>();
-
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<AddictionCravingDiary> addictionCravingDiary = new ArrayList<>();
 
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)

@@ -22,7 +22,7 @@
 
 <c:forEach items="${symptoms}" var="symptom">
 <tr>
-    <td>${symptom.symptomName}</td>
+    <td>${symptom.name}</td>
     <td><a href="/user/delete/symptom/${symptom.id}">usuń</a> </td>
     <td><a href="/user/edit/symptom/${symptom.id}">edytuj</a> </td>
 </tr>

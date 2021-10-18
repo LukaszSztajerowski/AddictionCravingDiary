@@ -20,17 +20,15 @@
 </div>
 WYswietlam
 <form:form method="post" action="/user/addNewACDForm" modelAttribute="acd">
-    <c:forEach items="${userSymptomList}" var ="symptom" varStatus="s">
-        ${symptom.symptomName}<br>
-<%--    <form:input path="acd.symptomPowerMap.key" value="${symptom.symptomName}" />--%>
-        <input path="acd.symptomPowerMap.key" value="${symptom}" type="hidden"/>
-        <select path="acd.symptomPowerMap.value">
-            <options value="0">0</options>
-            <options value="1">1</options>
-            <options value="2">2</options>
-            <options value="3">3</options>
+    <c:forEach items="${acd.symptomPowerMap}" var="acdEntry" varStatus="vs">
+        ${acdEntry.key.name}<br>
 
-        </select>
+        <form:select path="symptomPowerMap[${acdEntry.key.id}]">
+            <form:option value="0">0</form:option>
+            <form:option value="1">1</form:option>
+            <form:option value="2">2</form:option>
+            <form:option value="3">3</form:option>
+        </form:select>
         <br>
     </c:forEach>
     <input type="submit" value="dodaj kolejny dzień"/>

@@ -36,6 +36,15 @@
     </table>
 
 
+    <hr/>
+    <c:forEach items="${acd}" var="acdItem">
+        <b>Data: ${acdItem.date}</b> <br/>
+        <c:forEach items="${acdItem.symptomPowerMap}" var="acdItemEntry">
+             ${acdItemEntry.key.name} - ${acdItemEntry.value} <br/>
+        </c:forEach>
+        <br/>
+    </c:forEach>
+
 
 </div>
 </body>

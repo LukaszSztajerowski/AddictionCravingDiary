@@ -18,7 +18,7 @@ import java.util.List;
 public class UserController {
     private final UserServiceImpl userServiceImpl;
 
-    @GetMapping("")
+    @GetMapping("/")
         public String homePage(){
         return "home";
     }
@@ -41,13 +41,9 @@ public class UserController {
     @GetMapping("/user/dashboard")
         public String dashboard(Model model, Principal principal){
         User user = userServiceImpl.findByUsername(principal.getName());
-        List<Symptom> symptoms = user.getSymptoms();
         List<AddictionCravingDiary> acd = user.getAddictionCravingDiary();
-//        AddictionCravingDiary lastdiary = acd.get(acd.size() - 1);
         model.addAttribute("user", user);
-        model.addAttribute("symptoms", symptoms);
         model.addAttribute("acd", acd);
-//        model.addAttribute("last", lastdiary);
         return "dashboard";
     }
 
