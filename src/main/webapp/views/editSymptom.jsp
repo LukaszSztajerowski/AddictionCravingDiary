@@ -21,9 +21,6 @@
     nazwa : <form:input path="name"/><br/>
     <form:errors path="name"/><br/>
 
-    opis <form:input path="symptomDescription"/><br/>
-    <form:errors path="symptomDescription"/><br/>
-
     <input type="submit" value="edytuj">
 </form:form>
 

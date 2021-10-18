@@ -34,8 +34,9 @@ public class SymptomController {
             return "/user/add/symptom";
         }
         symptomService.createSymptom(symptom);
-        String name = principal.getName();
-        User user = userServiceImpl.findByUsername(name);
+        User user = userServiceImpl.findByUsername(principal.getName());
+        List<Symptom> symptoms = user.getSymptomList();
+        symptoms.add(symptom);
         userServiceImpl.updateUser(user);
         model.addAttribute("user", user);
         return "dashboard";
@@ -44,7 +45,7 @@ public class SymptomController {
     @GetMapping("/user/symptomsList")
     public String showSymptoms(Model model, Principal principal) {
         User user = userServiceImpl.findByUsername(principal.getName());
-        List<Symptom> symptoms = symptomService.getSymptoms();
+        List<Symptom> symptoms = user.getSymptomList();
         model.addAttribute("user", user);
         model.addAttribute("symptoms", symptoms);
         return "symptomsList";

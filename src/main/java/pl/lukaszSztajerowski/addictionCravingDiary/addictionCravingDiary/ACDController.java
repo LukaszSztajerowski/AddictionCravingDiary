@@ -30,9 +30,12 @@ public class ACDController {
     public String addNewACDForm(Model model, Principal principal) {
         User user = userServiceImpl.findByUsername(principal.getName());
         AddictionCravingDiary acd = new AddictionCravingDiary();
-
-        final Map<Symptom, Integer> symptomPowerMap = symptomRepository.findAll().stream().collect(Collectors.toMap(symptom -> symptom, symptom -> 0, (a, b) -> b));
-        acd.getSymptomPowerMap().putAll(symptomPowerMap);
+        Map<Symptom, Integer> symptomPowerMap = acd.getSymptomPowerMap();
+        for (Symptom symptom: user.getSymptomList()){
+            symptomPowerMap.put(symptom,0);
+        }
+//        final Map<Symptom, Integer> symptomPowerMap = symptomRepository.findAll().stream().collect(Collectors.toMap(symptom -> symptom, symptom -> 0, (a, b) -> b));
+//        acd.getSymptomPowerMap().putAll(symptomPowerMap);
 
         model.addAttribute("user", user);
         model.addAttribute("acd", acd);

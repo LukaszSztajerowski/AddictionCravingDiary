@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.lukaszSztajerowski.addictionCravingDiary.addictionCravingDiary.AddictionCravingDiary;
 import pl.lukaszSztajerowski.addictionCravingDiary.role.Role;
+import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -42,6 +43,9 @@ public class User {
     private String email;
 
     private String password;
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Symptom> symptomList = new ArrayList<>();
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<AddictionCravingDiary> addictionCravingDiary = new ArrayList<>();

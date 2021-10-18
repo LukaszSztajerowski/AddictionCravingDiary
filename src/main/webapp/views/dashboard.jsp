@@ -17,19 +17,34 @@
     <jsp:include page="appSideMenu.jsp"/>
 </div>
 <div>
+<div>
+    <p> Dzienniczek głodu jest jedna z najprostrzych metod rozpoznawana wzrostu napięcia emocjonalnego, a co za tym idzie także głodu alkoholowego.</p>
+    <p>Aby moc właściwie wykorzystać jego możliwości zacznij od dodania objawów głodu alkoholowego.</p>
+    <p>Całą postawę człowieka możnaby określi spogladając na jego:
+    <li>zachowanie </li>
+    <li>uczucia </li>
+    <li>myśli </li>
+    <li>reakcje organizmu </li>
 
-    <hr/>
-    <c:forEach items="${acd}" var="acdItem">
-        <b>Data: ${acdItem.date}</b> <br/>
-        <c:forEach items="${acdItem.symptomPowerMap}" var="acdItemEntry">
-             ${acdItemEntry.key.name} - ${acdItemEntry.value} <br/>
+    Zastanów sie przez chwilę i dodaj po około 5 objawów z każdej kategorii.
+    Nie ma zbytniego znaczenia, czy będzie ich łącznie koniecznie 20.
+    Po paru dniach odkryjesz, jaki jest Twój standardowy poziom napięcie i zaczniesz łączyć zwiększoną ilość punków z pojawiającym sie przymusem picia/brania narkotyków
+    </p>
+</div>
+
+    <div>
+        <hr/>
+        <c:forEach items="${acd}" var="acdItem">
+            <b>Data: ${acdItem.date}</b> <br/>
+            <c:forEach items="${acdItem.symptomPowerMap}" var="acdItemEntry">
+                ${acdItemEntry.key.name} - ${acdItemEntry.value} <br/>
+            </c:forEach>
+            <b>Suma wartości siły napięcia: ${acdItem.powerSum} </b>
+            <br/>
+            <br/>
         </c:forEach>
-        <b>Suma wartości siły napięcia: ${acdItem.powerSum} </b>
-        <br/>
-        <br/>
-    </c:forEach>
 
-
+    </div>
 </div>
 </body>
 </html>
