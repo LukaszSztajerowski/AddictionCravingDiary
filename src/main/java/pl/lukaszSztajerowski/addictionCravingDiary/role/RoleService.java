@@ -9,7 +9,7 @@ public class RoleService {
 
     private final RoleRepository roleRepository;
 
-    public void createRole(Role role){
+    public void createRole(Role role) {
         roleRepository.save(role);
     }
 

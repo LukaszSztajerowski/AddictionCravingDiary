@@ -25,13 +25,13 @@ public class SpringDataUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userService.findByUsername(username);
-        if(user == null){
+        if (user == null) {
             throw new UsernameNotFoundException(username);
         }
         Set<GrantedAuthority> grantedAuthories = new HashSet<>();
-        for(Role role : user.getRoles()){
+        for (Role role : user.getRoles()) {
             grantedAuthories.add(new SimpleGrantedAuthority(role.getName()));
         }
-        return new org.springframework.security.core.userdetails.User(user.getName(),user.getPassword(),grantedAuthories);
+        return new org.springframework.security.core.userdetails.User(user.getName(), user.getPassword(), grantedAuthories);
     }
 }

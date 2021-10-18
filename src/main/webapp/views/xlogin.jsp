@@ -12,6 +12,6 @@
     <h1>Logowanie</h1>
     login <input type="text" name="userName" placeholder="Podaj nazwę użytkownika"><br/>
     hasło <input type="password" name="password" placeholder="Podaj hasło"><br/>
-    <button type="submit"> Zaloguj </button>
+    <button type="submit"> Zaloguj</button>
 </form>
 </body>

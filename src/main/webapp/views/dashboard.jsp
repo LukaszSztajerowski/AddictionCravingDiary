@@ -17,24 +17,6 @@
     <jsp:include page="appSideMenu.jsp"/>
 </div>
 <div>
-    <table>
-        <thead>
-        <tr>
-            <th>nazwa objawu</th>
-            <c:forEach items="${acd}" var="acd">
-                <th>${acd.date}</th>
-            </c:forEach>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-<c:forEach items="${symptoms}" var="symptom">
-    <tr> <td>${symptom.symptomName}</td></tr>
-</c:forEach>
-        </tr>
-        </tbody>
-    </table>
-
 
     <hr/>
     <c:forEach items="${acd}" var="acdItem">
@@ -42,6 +24,8 @@
         <c:forEach items="${acdItem.symptomPowerMap}" var="acdItemEntry">
              ${acdItemEntry.key.name} - ${acdItemEntry.value} <br/>
         </c:forEach>
+        <b>Suma wartości siły napięcia: ${acdItem.powerSum} </b>
+        <br/>
         <br/>
     </c:forEach>
 

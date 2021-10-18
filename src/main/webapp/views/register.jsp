@@ -1,6 +1,6 @@
 <%@ page isELIgnored="false" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
 <html lang="pl">
 
@@ -17,7 +17,7 @@
     email: <form:input path="email"/><br/>
     <form:errors path="email"/><br/>
 
-    hasło: <form:input path="password" />
+    hasło: <form:input path="password"/>
     <input type="submit" value="register">
 </form:form>
 </html>

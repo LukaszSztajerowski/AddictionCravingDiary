@@ -10,4 +10,7 @@
             <li><a href="/user/addNewACD">Wypełnij dzienniczek</a></li>
         </ul>
     </div>
+    <hr/>
+    <hr/>
+
 </section>

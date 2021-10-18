@@ -12,33 +12,29 @@ public class ACDService {
 
     private final ACDRepository acdRepository;
 
-    public void createACD(AddictionCravingDiary addictionCravingDiary){
-
-
+    public void createACD(AddictionCravingDiary addictionCravingDiary) {
 
 
         acdRepository.save(addictionCravingDiary);
     }
 
 
-
-
-    public Optional<AddictionCravingDiary> readACD(Long id){
+    public Optional<AddictionCravingDiary> readACD(Long id) {
         return acdRepository.findById(id);
     }
 
-    public void updateACD(AddictionCravingDiary acdToUpdate){
+    public void updateACD(AddictionCravingDiary acdToUpdate) {
         acdRepository.save(acdToUpdate);
     }
 
-    public void deleteACD(Long id){
+    public void deleteACD(Long id) {
         Optional<AddictionCravingDiary> byId = acdRepository.findById(id);
-        if(byId.isPresent()){
+        if (byId.isPresent()) {
             acdRepository.deleteById(id);
         }
     }
 
-    public List<AddictionCravingDiary> getACDs(){
+    public List<AddictionCravingDiary> getACDs() {
         List<AddictionCravingDiary> acdList = acdRepository.findAll();
         return acdList;
     }

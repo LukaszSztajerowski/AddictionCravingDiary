@@ -26,4 +26,6 @@ public class AddictionCravingDiary {
     @ElementCollection
     private Map<Symptom, Integer> symptomPowerMap = new HashMap<>();
 
+    private Integer powerSum;
+
 }

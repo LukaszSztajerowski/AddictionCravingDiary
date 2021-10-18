@@ -14,6 +14,7 @@ import pl.lukaszSztajerowski.addictionCravingDiary.user.UserServiceImpl;
 
 import javax.validation.Valid;
 import java.security.Principal;
+import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -39,15 +40,25 @@ public class ACDController {
     }
 
     @PostMapping("/user/addNewACDForm")
-    public String addNewACD(@Valid AddictionCravingDiary acd, BindingResult result, Principal principal, Model model) {
+    public String addNewACD(@Valid AddictionCravingDiary addictionCravingDiary, BindingResult result, Principal principal, Model model) {
         if (result.hasErrors()) {
             return "dashboard";
         }
         String name = principal.getName();
         User user = userServiceImpl.findByUsername(name);
-        user.getAddictionCravingDiary().add(acd);
+        List<AddictionCravingDiary> acd = user.getAddictionCravingDiary();
+
+
+        Integer valueSum = 0;
+        for (Integer value: addictionCravingDiary.getSymptomPowerMap().values()){
+            valueSum = valueSum+value;
+        }
+        addictionCravingDiary.setPowerSum(valueSum);
+        user.getAddictionCravingDiary().add(addictionCravingDiary);
+
         userServiceImpl.updateUser(user);
         model.addAttribute("user", user);
+        model.addAttribute("acd", acd);
         return "dashboard";
     }
 }

@@ -3,7 +3,12 @@ package pl.lukaszSztajerowski.addictionCravingDiary.role;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "roles")
@@ -18,7 +23,7 @@ public class Role {
     @Column(unique = true, name = "role")
     private String name;
 
-    public Role(String name){
+    public Role(String name) {
         this.name = name;
     }
 }
