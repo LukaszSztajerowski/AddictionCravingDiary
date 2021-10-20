@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class ACDController {
 
     private final UserServiceImpl userServiceImpl;
-    private final SymptomRepository symptomRepository;
+
 
     @GetMapping("/user/addNewACD")
     public String addNewACDForm(Model model, Principal principal) {
@@ -34,8 +34,6 @@ public class ACDController {
         for (Symptom symptom: user.getSymptomList()){
             symptomPowerMap.put(symptom,0);
         }
-//        final Map<Symptom, Integer> symptomPowerMap = symptomRepository.findAll().stream().collect(Collectors.toMap(symptom -> symptom, symptom -> 0, (a, b) -> b));
-//        acd.getSymptomPowerMap().putAll(symptomPowerMap);
 
         model.addAttribute("user", user);
         model.addAttribute("acd", acd);

@@ -51,27 +51,4 @@ public class SymptomController {
         return "symptomsList";
     }
 
-    @GetMapping("/user/delete/symptom/{id}")
-    public String deleteSymptom(@PathVariable Long id) {
-        symptomService.deleteSymptom(id);
-        return "symptomsList";
-    }
-
-    @GetMapping("/user/edit/symptom/{id}")
-    public String editSymptomForm(Model model) {
-        model.addAttribute("symptom", new Symptom());
-        return "editSymptom";//edycja do poprawy
-    }
-
-    @PostMapping("/user/edit/symptom/{id}")
-    public String editSymptom(@PathVariable Long id, @Valid Symptom symptom, BindingResult result) {
-        if (result.hasErrors()) {
-            return "symptomsList";
-        }
-        symptom.setId(id);
-        symptomService.updateSymptom(symptom);
-
-        return "symptomsList";
-
-    }
 }
