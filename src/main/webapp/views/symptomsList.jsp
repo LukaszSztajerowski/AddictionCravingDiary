@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8">
     <title>Dzienniczek Głodu - objawy głodu</title>
+
 </head>
 
 <body>
@@ -18,7 +19,7 @@
     <jsp:include page="appSideMenu.jsp"/>
 </div>
 <table>
-    <thead><td>nazwa</td><td>opcje</td></thead>
+    <thead><td>nazwa</td></thead>
 
 <c:forEach items="${symptoms}" var="symptom">
 <tr>

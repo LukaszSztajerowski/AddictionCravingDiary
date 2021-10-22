@@ -18,9 +18,9 @@
 </div>
 <div>
 <div>
-    <p> Dzienniczek głodu jest jedna z najprostrzych metod rozpoznawana wzrostu napięcia emocjonalnego, a co za tym idzie także głodu alkoholowego.</p>
+    <p> Dzienniczek głodu jest jedna z najprostszych metod rozpoznawana wzrostu napięcia emocjonalnego, a co za tym idzie także głodu alkoholowego.</p>
     <p>Aby moc właściwie wykorzystać jego możliwości zacznij od dodania objawów głodu alkoholowego.</p>
-    <p>Całą postawę człowieka możnaby określi spogladając na jego:
+    <p>Całą postawę człowieka możnaby określi spoglądając na jego:
     <li>zachowanie </li>
     <li>uczucia </li>
     <li>myśli </li>

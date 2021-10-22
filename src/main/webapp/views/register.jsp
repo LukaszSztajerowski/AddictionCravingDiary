@@ -8,6 +8,8 @@
 <head>
     <meta charset="utf-8">
     <title>Dzienniczek głodu w uzależnieniu - rejestracja</title>
+    <link rel="stylesheet" href="styles.css">
+
 </head>
 <h1>Rejestracja</h1>
 <form:form method="post" action="/register" modelAttribute="user">
