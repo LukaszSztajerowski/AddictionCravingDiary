@@ -7,7 +7,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.lukaszSztajerowski.addictionCravingDiary.addictionCravingDiary.AddictionCravingDiary;
-import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
 
 import javax.validation.Valid;
 import java.security.Principal;
@@ -19,19 +18,19 @@ public class UserController {
     private final UserServiceImpl userServiceImpl;
 
     @GetMapping("/")
-        public String homePage(){
+    public String homePage() {
         return "home";
     }
 
     @GetMapping("/register")
-        public String registerPage(Model model){
+    public String registerPage(Model model) {
         model.addAttribute("user", new User());
         return "register";
     }
 
     @PostMapping("/register")
-        public String register(@Valid User user, BindingResult result){
-        if(result.hasErrors()){
+    public String register(@Valid User user, BindingResult result) {
+        if (result.hasErrors()) {
             return "register";
         }
         userServiceImpl.createUser(user);
@@ -39,7 +38,7 @@ public class UserController {
     }
 
     @GetMapping("/user/dashboard")
-        public String dashboard(Model model, Principal principal){
+    public String dashboard(Model model, Principal principal) {
         User user = userServiceImpl.findByUsername(principal.getName());
         List<AddictionCravingDiary> acd = user.getAddictionCravingDiary();
         model.addAttribute("user", user);

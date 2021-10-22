@@ -18,7 +18,7 @@
     <jsp:include page="appSideMenu.jsp"/>
 </div>
 <table>
-    <thead><td>nazwa</td><td>opcje</td></thead>
+    <thead><td>nazwa</td></thead>
 
 <c:forEach items="${symptoms}" var="symptom">
 <tr>

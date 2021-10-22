@@ -8,7 +8,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.lukaszSztajerowski.addictionCravingDiary.symptom.Symptom;
-import pl.lukaszSztajerowski.addictionCravingDiary.symptom.SymptomRepository;
 import pl.lukaszSztajerowski.addictionCravingDiary.user.User;
 import pl.lukaszSztajerowski.addictionCravingDiary.user.UserServiceImpl;
 
@@ -16,7 +15,6 @@ import javax.validation.Valid;
 import java.security.Principal;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Log
 @Controller
@@ -31,8 +29,8 @@ public class ACDController {
         User user = userServiceImpl.findByUsername(principal.getName());
         AddictionCravingDiary acd = new AddictionCravingDiary();
         Map<Symptom, Integer> symptomPowerMap = acd.getSymptomPowerMap();
-        for (Symptom symptom: user.getSymptomList()){
-            symptomPowerMap.put(symptom,0);
+        for (Symptom symptom : user.getSymptomList()) {
+            symptomPowerMap.put(symptom, 0);
         }
 
         model.addAttribute("user", user);
@@ -51,8 +49,8 @@ public class ACDController {
 
 
         Integer valueSum = 0;
-        for (Integer value: addictionCravingDiary.getSymptomPowerMap().values()){
-            valueSum = valueSum+value;
+        for (Integer value : addictionCravingDiary.getSymptomPowerMap().values()) {
+            valueSum = valueSum + value;
         }
         addictionCravingDiary.setPowerSum(valueSum);
         user.getAddictionCravingDiary().add(addictionCravingDiary);
