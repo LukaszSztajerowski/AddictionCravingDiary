@@ -9,6 +9,7 @@
 <head>
     <meta charset="utf-8">
     <title>Dzienniczek Głodu - dodawanie kolejnego dnia </title>
+
 </head>
 
 <body>
@@ -18,7 +19,6 @@
 <div>
     <jsp:include page="appSideMenu.jsp"/>
 </div>
-WYswietlam
 <form:form method="post" action="/user/addNewACDForm" modelAttribute="acd">
     <c:forEach items="${acd.symptomPowerMap}" var="acdEntry" varStatus="vs">
         ${acdEntry.key.name}<br>

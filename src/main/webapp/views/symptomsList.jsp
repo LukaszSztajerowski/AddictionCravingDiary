@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8">
     <title>Dzienniczek Głodu - objawy głodu</title>
+
 </head>
 
 <body>

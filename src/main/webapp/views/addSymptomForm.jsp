@@ -8,6 +8,7 @@
 <head>
     <meta charset="utf-8">
     <title>Dzienniczek głodu w uzależnieniu - dodawanie symptomu</title>
+
 </head>
 <h1>Dodawanie objawu głodu</h1>
 <form:form method="post" action="/user/add/symptom" modelAttribute="symptom">

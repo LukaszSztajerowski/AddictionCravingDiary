@@ -5,6 +5,8 @@
 
 <head>
     <meta charset="utf-8">
+    <title>Dzienniczek głodu - logowanie/rejestracja</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <nav>
