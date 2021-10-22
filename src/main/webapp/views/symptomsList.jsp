@@ -19,12 +19,15 @@
     <jsp:include page="appSideMenu.jsp"/>
 </div>
 <table>
-    <thead><td>nazwa</td></thead>
+    <thead>
+    <td>nazwa</td>
+    </thead>
 
-<c:forEach items="${symptoms}" var="symptom">
-<tr>
-    <td>${symptom.name}</td>
-</tr>
-</c:forEach>
+    <c:forEach items="${symptoms}" var="symptom">
+        <tr>
+            <td>${symptom.name}</td>
+            <td><a href="/user/editSymptom/${symptom.id}">edytuj</a></td>
+        </tr>
+    </c:forEach>
 </table>
 </body>
